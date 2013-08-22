@@ -1,8 +1,8 @@
 import numpy as np
 
 num_visible_units = 7
-num_hidder_units = 3
-learning_rate = 0.2
+num_hidder_units = 2
+learning_rate = 0.5
 
 weight_matrix = np.random.rand(num_visible_units + 1, num_hidder_units)
 
@@ -27,10 +27,7 @@ data = np.array([
 	  [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0],
 	  [1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0],
 	  [1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0],
-	  [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0],
-	  [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0],
-	  [1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0],
-	  [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+	  [1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0],	  
 	])
 
 def sigmoidal(given_matrix): return 1 / (1 + np.exp(-given_matrix))
@@ -49,7 +46,7 @@ for epoch in range(5000):
 		visible_units_activation = sigmoidal(np.dot(hidden_units_activation, np.transpose(weight_matrix))) > np.random.rand(1, num_visible_units+1)[0]
 		negative_positions = create_state_matrix(visible_units_activation, hidden_units_activation)
 
-		# Update weights accordingle
+		# Update weights accordingly
 		weight_matrix += learning_rate * (positive_positions - negative_positions)
 
 	print "DayDreaming completed for %d epoch" % (epoch)

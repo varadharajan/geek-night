@@ -18,7 +18,7 @@ def create_t_vector(digit):
 	t_vector[0, digit] = 1
 	return t_vector[0]
 
-# Run for 100 epoch
+# Run for 10 epoch
 for epoch in range(0, 10):
 	
 	classified_correctly = 0
