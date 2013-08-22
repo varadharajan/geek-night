@@ -54,6 +54,8 @@ for epoch in range(5000):
 
 	print "DayDreaming completed for %d epoch" % (epoch)
 
+print weight_matrix
+
 while True:
 	user_preference = np.array(eval(raw_input("Enter user Preference : ")))
 	hidden_units_activation = sigmoidal(np.dot(user_preference, weight_matrix)) > (np.random.rand(1, num_hidder_units)/2)[0]
@@ -61,3 +63,4 @@ while True:
 	print visible_units_activation
 
 	# Sample user preference :  [1.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0]
+	# Sample user preference :  [1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0]
